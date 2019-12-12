@@ -1,0 +1,8 @@
+<div class="contents row">
+  <% @articles.each do |article| %>
+    <div class="content_post" style="image: url(<%= article.image %>);">
+    </div>
+    <strong class="name"><%= article.name %></strong>
+    <%= simple_format(article.text,{}, wrapper_tag: "strong")%>
+  <% end %>
+</div>
