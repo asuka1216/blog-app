@@ -1,8 +1,13 @@
-<div class="contents row">
+<div class="contents row"style="flex-wrap: wrap;animation: bg-color 5s infinite;height: 821px;">
   <% @articles.each do |article| %>
-    <div class="content_post" style="image: url(<%= article.image %>);">
+    <div class="content_post" style="background-image: url(<%= article.image %>);">
+      <strong class="name">
+        <a>
+          <%= article.user.nickname %>
+        </a>
+      </strong>
+      <p><%= simple_format(article.text,{}, wrapper_tag: "strong")%></p>
     </div>
-    <strong class="name"><%= article.name %></strong>
-    <%= simple_format(article.text,{}, wrapper_tag: "strong")%>
-  <% end %>
+   <% end %>
 </div>
+<%= paginate(@articles) %>

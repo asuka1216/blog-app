@@ -37,6 +37,24 @@ $white: white;
   margin: $margin;
 }
 
+@keyframes color{
+  0% { color: #e74c3c; }
+  20% { color: #f1c40f; }
+  40% { color: #1abc9c; }
+  60% { color: #3498db; }
+  80% { color: #9b59b6; }
+  100% { color: #e74c3c; }
+}
+
+@keyframes bg-color {
+  0% { background-color: lightpink; }
+  20% { background-color: lightyellow; }
+  40% { background-color: lightgreen; }
+  60% { background-color: lightblue; }
+  80% { background-color: plum; }
+  100% { background-color: lightpink; }
+}
+
 body,html {
   height: 100%;
   background-color: $lightGray;
@@ -48,10 +66,9 @@ body {
 
 h1,h2,h3,h4,h5,h6,body {
 line-height: 1.57;
-  letter-spacing: 0.15em;
-  font-size: 16px;
-  color: $dark;
-  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+  font-size: 13px;
+  // color: $dark;
+  // font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
   margin: 0;
 }
 
@@ -89,15 +106,18 @@ a {
 .btn {
     @include basePadding(8px 20px);
     font-size: 14px;
-    border: 2px solid $accent;
-    color: $accent;
+    border: 2px solid limegreen;
+    color: limegreen;
     font-weight: bold;
     text-align: center;
     border-radius: 3px;
     display: inline-block;
+    border-radius: 50%;
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: medium;
   &:hover {
-    border-color: lighten($accent, 15%);
-    color: lighten($accent, 15%);
+    border-color: pink;
+    color: lightskyblue;
   }
 }
 
@@ -120,8 +140,8 @@ h1,h2,h3,h4,h5,h6 {
 
 header.header {
   @include basePadding;
-  border-bottom: 1px solid $gray;
-  background-color: #fff;
+  border-bottom: 1px solid black;
+  background-color: white;
   position: fixed;
   top: 0;
   left: 0;
@@ -137,6 +157,7 @@ header.header {
       margin-left: 100px;
       a {
         display: block;
+        animation: color 0.2s infinite;
       }
     }
     div.grid-6 {
@@ -147,6 +168,7 @@ header.header {
         width: 120px;
         display: inline-left;
         margin-left: 10px;
+        animation: color 0.3s infinite;
       }
     }
   }
@@ -161,9 +183,10 @@ header.header {
       margin-left: 30px;
       width: 150px;
       height: 50px;
-      font-size: 1em;
+      font-size: 1.4em;
       cursor: pointer;
       position: relative;
+      left: 250px;
       &:after {
         content: '▼';
         font-size: .7em;
@@ -221,14 +244,23 @@ div.contents.row {
       font-size: 1.2em;
     }
   }
+  i {
+    position: absolute;
+    top: 65px;
+  }
   .new_user{
   font-family: "游ゴシック", "YuGothic";
   }
   div.content_post {
     @include boxBase(20px 0 ,30px);
     position: relative;
-    height: 400px;
-    color: #fff;
+    margin-bottom: 500px;
+    margin-top: 40px;
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 112.5px;
+    min-width: 200px;
+    // color: #fff;
     background-size: cover;
     background-position: center center;
     border-radius: 3px;
@@ -288,31 +320,35 @@ div.contents.row {
       @extend .serif;
       position: absolute;
       left: 30px;
-      right: 100px;
+      top: 165px;
+      left: 0px;
       bottom: 30px;
       margin: 0;
       font-size: 20px;
       z-index: 2;
-      font-weight: bold;
-      text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
+      width: 200px;
+      // font-weight: bold;
+      // text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
     }
-    span.name {
+    strong.name {
       position: absolute;
-      right: 30px;
+      top: 135px;
+      left: 0px;
       bottom: 30px;
       z-index: 2;
       font-size: 13px;
       a {
         display: block;
-        color: #aaa;
+        color: black;
+
         &:hover {
           text-decoration: underline;
           color: #aaa;
         }
       }
-      span {
+      strong {
         font-size: 9px;
-        display: block;
+        // display: block;
       }
     }
   }
@@ -327,6 +363,122 @@ div.contents.row {
     }
   }
 }
+div.contents.row2 {
+  h2 {
+    @include boxBase(20px 0, 0);
+    font-weight: normal;
+    font-size: x-large;
+    color: blueviolet;
+    strong {
+      font-weight: bold;
+      padding-right: 5px;
+      font-size: 1.2em;
+    }
+  }
+  .new_user{
+  font-family: "游ゴシック", "YuGothic";
+  }
+  div.content_post {
+    @include boxBase(20px 0 ,30px);
+    position: relative;
+    margin-bottom: 200px;
+    margin-top: 20px;
+    margin-right: 100px;
+    height: 200px;
+    min-width: 200px;
+    // color: #fff;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba($black,0.2);
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      @include filter-gradient(#000000, #a60000, vertical);
+      @include background-image(linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 62%,rgba(0,0,0,0.85) 100%));
+      z-index: 1;
+      border-radius: 3px;
+    }
+    .more {
+      position: absolute;
+      cursor: pointer;
+      top: 20px;
+      right: 30px;
+      z-index: 2;
+      height: 100px;
+      width: 80px;
+      text-align: right;
+      &:hover ul.more_list {
+        display: block;
+      }
+      ul.more_list {
+        position: absolute;
+        text-align: left;
+        width: 80px;
+        right: 0;
+        font-size: 12px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        display: none;
+        box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        border-radius: 3px;
+        li {
+          border-bottom: 1px solid #ddd;
+          &:last-child {
+            border-bottom: 0;
+          }
+          a {
+            display: block;
+            padding: 5px;
+            &:hover {
+              background-color: $accent;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+    p {
+      @extend .serif;
+      position: absolute;
+      left: 30px;
+      top: 240px;
+      left: 0px;
+      bottom: 30px;
+      margin: 0;
+      font-size: 20px;
+      z-index: 2;
+      width: 200px;
+      // font-weight: bold;
+      // text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
+    }
+    strong.name {
+      position: absolute;
+      top: 210px;
+      left: 0px;
+      bottom: 30px;
+      z-index: 2;
+      font-size: 13px;
+      a {
+        display: block;
+        color: #aaa;
+
+        &:hover {
+          text-decoration: underline;
+          color: #aaa;
+        }
+      }
+      strong {
+        font-size: 9px;
+        // display: block;
+      }
+    }
+  }
+  
 form {
   h3 {
     @include baseMargin(0 0 20px);
@@ -354,21 +506,171 @@ form {
     }
   }
 }
-.container {
+.success {
   @include boxBase(20px 0 ,30px);
   box-shadow: 0 0 10px rgba($black,0.2);
   background-color: $white;
   box-sizing: border-box;
+  text-align: center;
+  h3 {
+    @include baseMargin;
+  }
 }
-.comments {
-  padding: 5px;
-  margin-top: 15px;
-  a {
-    color: $accent;
-    &:hover {
-      text-decoration: underline;
+}
+
+div.contents.row3 {
+  h2 {
+    @include boxBase(20px 0, 0);
+    font-weight: normal;
+    font-size: x-large;
+    color: blueviolet;
+    strong {
+      font-weight: bold;
+      padding-right: 5px;
+      font-size: 1.2em;
     }
   }
+  .new_user{
+  font-family: "游ゴシック", "YuGothic";
+  }
+  div.content_post {
+    @include boxBase(20px 0 ,30px);
+    position: relative;
+    margin-bottom: 200px;
+    margin-top: 20px;
+    margin-right: 100px;
+    height: 200px;
+    min-width: 200px;
+    // color: #fff;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba($black,0.2);
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      @include filter-gradient(#000000, #a60000, vertical);
+      @include background-image(linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 62%,rgba(0,0,0,0.85) 100%));
+      z-index: 1;
+      border-radius: 3px;
+    }
+    .more {
+      position: absolute;
+      cursor: pointer;
+      top: 20px;
+      right: 30px;
+      z-index: 2;
+      height: 100px;
+      width: 80px;
+      text-align: right;
+      &:hover ul.more_list {
+        display: block;
+      }
+      ul.more_list {
+        position: absolute;
+        text-align: left;
+        width: 80px;
+        right: 0;
+        font-size: 12px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        display: none;
+        box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        border-radius: 3px;
+        li {
+          border-bottom: 1px solid #ddd;
+          &:last-child {
+            border-bottom: 0;
+          }
+          a {
+            display: block;
+            padding: 5px;
+            &:hover {
+              background-color: $accent;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+    p {
+      @extend .serif;
+      position: absolute;
+      left: 30px;
+      top: 240px;
+      left: 0px;
+      bottom: 30px;
+      margin: 0;
+      font-size: 20px;
+      z-index: 2;
+      width: 200px;
+      // font-weight: bold;
+      // text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
+    }
+    strong.name {
+      position: absolute;
+      top: 210px;
+      left: 0px;
+      bottom: 30px;
+      z-index: 2;
+      font-size: 13px;
+      a {
+        display: block;
+        color: #aaa;
+
+        &:hover {
+          text-decoration: underline;
+          color: #aaa;
+        }
+      }
+      strong {
+        font-size: 9px;
+        // display: block;
+      }
+    }
+  }
+  
+form {
+  h3 {
+    @include baseMargin(0 0 20px);
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+    color: $dark;
+  }
+  input,textarea {
+    width: 100%;
+    @include boxBase(5px 0 15px,10px);
+    border: 1px solid $gray;
+    border-radius: 5px;
+    font-family: "游ゴシック", "YuGothic";
+  }
+  input[type="submit"] {
+    @extend .transition;
+    background-color: $accent;
+    border-radius: 20px;
+    color: #fff;
+    border: 0;
+    font-size: 18px;
+    &:hover {
+      background-color: lighten($accent, 10%);
+    }
+  }
+}
+.success {
+  @include boxBase(20px 0 ,30px);
+  box-shadow: 0 0 10px rgba($black,0.2);
+  background-color: $white;
+  box-sizing: border-box;
+  text-align: center;
+  h3 {
+    @include baseMargin;
+  }
+}
 }
 
 footer {
@@ -376,18 +678,5 @@ footer {
   color: $gray;
   p {
     text-align: center;
-  }
-}
-
-.search-form {
-  text-align: center;
-  padding-top: 32px;
-  .search-input {
-    width: 30%;
-    margin-right: 10px;
-  }
-
-  .search-btn {
-    width: 10%;
   }
 }
