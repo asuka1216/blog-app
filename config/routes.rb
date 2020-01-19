@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'articles#index'
-  get 'articles' => 'articles#index'
-  get 'articles/new' => 'articles#new'
-  post 'articles' => 'articles#create'
-  get 'users/:id' => 'users#show'
+  resources :articles do
+    resources :comments, only: [:create]
+  end
+  resources :users, only: [:show]
 end

@@ -1,12 +1,30 @@
-<div class="contents row"style="flex-wrap: wrap;animation: bg-color 5s infinite;height: 821px;">
+<div class="contents row"style="flex-wrap: wrap;animation: bg-color 20s infinite;height: 821px;">
   <% @articles.each do |article| %>
     <div class="content_post" style="background-image: url(<%= article.image %>);">
-      <strong class="name">
-        <a>
-          <%= article.user.nickname %>
-        </a>
-      </strong>
-      <p><%= simple_format(article.text,{}, wrapper_tag: "strong")%></p>
+      <% if user_signed_in? && current_user.id == article.user_id %>
+      <div class="more">
+          <span><%= image_tag 'arrow_top.png' %></span>
+          <ul class="more_list">
+            <li>
+              <%= link_to 'detail', "/articles/#{article.id}", method: :get%>
+            </li>
+            <% if user_signed_in? && current_user.id == article.user_id %>
+              <li>
+                <%= link_to 'edit', "articles/#{article.id}/edit", method: :get%>
+              </li>
+              <li>
+                <%= link_to 'delete', "/articles/#{article.id}", method: :delete %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+        <strong class="name">
+          <a>
+            <%= article.user.nickname %>
+          </a>
+        </strong>
+        <p><%= simple_format(article.text,{}, wrapper_tag: "strong")%></p>
     </div>
    <% end %>
 </div>
