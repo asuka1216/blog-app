@@ -19,12 +19,22 @@
    display: block;
  }
  
+ nav{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 660px;
+  font-size: x-large;
+ }
  /*
   * Correct `inline-block` display not defined in IE 8/9. */
  audio,
  canvas,
  video {
    display: inline-block;
+   
  }
  
  /*
@@ -51,7 +61,7 @@
   * 2. Prevent iOS text size adjust after orientation change, without disabling
   *    user zoom. */
  html {
-   font-family: sans-serif;
+   font-family: 'Righteous', cursive;
    /* 1 */
    -ms-text-size-adjust: 100%;
    /* 2 */
@@ -110,6 +120,7 @@
  strong {
    font-weight: bold;
    opacity: 0;
+   word-wrap: break-word;
  }
  
  /*
@@ -139,7 +150,7 @@
  kbd,
  pre,
  samp {
-   font-family: monospace, serif;
+  
    font-size: 1em;
  }
  
@@ -232,7 +243,6 @@
  input,
  select,
  textarea {
-   font-family: inherit;
    /* 1 */
    font-size: 100%;
    /* 2 */
@@ -450,7 +460,10 @@
  }
  
  ul {
+   color: red;
+   font-size: xx-large;
    margin: 0;
+   margin-bottom: 20px;
    padding: 0;
  }
  ul li {
@@ -461,13 +474,34 @@
  
  .row {
    width: 100%;
-   margin-left: auto;
-   margin-right: auto;
+  //  margin-left: 20px;
+   margin-right: 20px;
    margin-top: 0;
    margin-bottom: 0;
-   max-width: 660px;
+  //  max-width: 1390px;
+   display: flex;
+  //  animation: bg-color 0.1s infinite;
    *zoom: 1;
  }
+ .row2 {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 660px;
+  *zoom: 1;
+}
+.row3 {
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 1390px;
+  display: flex;
+  *zoom: 1;
+}
  .row .grid-1,
  .row .grid-2,
  .row .grid-3,
@@ -611,3 +645,4 @@
    }
  }
  /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+ 

@@ -1,0 +1,42 @@
+<div class="contents row5" style="height: px;animation: bg2-color 20s infinite;">
+  <div class="content_post" style="width: 660px; margin: 0 auto;top: 40px; background-image: url(<%= @article.image %>);">
+    <% if user_signed_in? && current_user.id == @article.user_id %>
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+          <ul class="more_list">
+            <li>
+              <%= link_to 'edit', "articles/#{@article.id}/edit", method: :get%>
+            </li>
+            <li>
+              <%= link_to 'delete', "/articles/#{@article.id}", method: :delete %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+        <strong class="name">
+          <a style="top: 420px;position: absolute;font-size: x-large;">            
+            <%= @article.user.nickname %>
+          </a>
+        </strong>
+        <p><strong style="position: absolute;top: 100px;"><%= simple_format(@article.text,{}, wrapper_tag: "strong")%></strong></p>
+    </div>
+    <div class="container" style="animation: bg2-color 20s infinite;">
+      <% if current_user %>
+        <%= form_tag("/articles/#{@article.id}/comments", method: :post) do %>
+          <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+          <input type="submit" value="SENT">
+        <% end %>
+      <% end %>
+      <div class="comments">   
+        <h4>＜コメント一覧＞</h4>
+        <% if @comments %>
+          <% @comments.each do |comment| %>
+            <p>
+              <span><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</span>
+              <%= comment.text %>
+            </p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+</div>
